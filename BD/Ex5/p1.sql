@@ -1,0 +1,6 @@
+CREATE DATABASE ejemplo;
+CREATE SCHEMA esq1;
+CREATE TABLE esq1.tabla1 (dni TEXT PRIMARY KEY, nombre TEXT);
+CREATE TABLE tabla2 (id SERIAL, dni TEXT, FOREIGN KEY (dni) REFERENCES esq1.tabla1 (dni));
+ALTER TABLE esq1.tabla1 ADD COLUMN edad INTEGER CHECK (edad >0 AND edad <=99);
+ALTER TABLE tabla2 ADD COLUMN precio NUMERIC (8,4);
